@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Register Employee</title>
+</head>
+<body>
+    <h1 style="color:red;text-align:center">Register Employee</h1>
+    <form th:action="@{employee/emp_add}" th:object="${emp}" method="POST">
+        <table align="center" bgcolor="brown">
+            <tr>
+                <td>Employee Name:</td>
+                <td><input th:field="*{empname}"/></td>
+            </tr>
+            <tr>
+                <td>Employee Deg:</td>
+                <td><input th:field="*{deptname}"/></td>
+            </tr>
+            <tr>
+                <td>Employee MGR:</td>
+                <td><input th:field="*{mgr}"/></td>
+            </tr>
+            <tr>
+                <td>Employee HireDate:</td>
+                <td><input type="datetime-local" th:field="*{joinDate}"/></td>
+            </tr>
+            <tr>
+                <td>Employee Sal:</td>
+                <td><input th:field="*{salary}"/></td>
+            </tr>
+            <tr>
+                <td>Employee Communication:</td>
+                <td><input th:field="*{comm}"/></td>
+            </tr>
+            <tr>
+                <td>Employee Deptno:</td>
+                <td><input th:field="*{deptno}"/></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="submit"></td>
+                <td><input type="reset" value="cancel"></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

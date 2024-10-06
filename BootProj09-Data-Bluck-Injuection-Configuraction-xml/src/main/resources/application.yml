@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: BootProj09-Data-Bluck-Injuection-Configuraction-xml
+org:
+  nit:
+   name:omkar
+   age:22
+   size:33

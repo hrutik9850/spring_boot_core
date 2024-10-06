@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Employees Report</title>
+</head>
+<body>
+    <div th:if="${!#lists.isEmpty(empreport)}">
+        <h1 style="color:red;text-align:center">Employees Report</h1>
+        <table border="1" align="center" bgcolor="gray">
+            <tr style="color:blue">
+                <th>EMP_NO</th>
+                <th>EMP_NAME</th>
+                <th>JOB</th>
+                <th>JOIN DATE</th>
+                <th>SALARY</th>
+                <th>COMM</th>
+                <th>SALARY</th>
+                <th>DEPTNO</th>
+                <th>EDIT OPERATION</th>
+                <th>DELETE OPERATION</th>
+            </tr>
+            <tr th:each="emp : ${empreport}" style="color:white">
+                <td><span th:text="${emp.empno}"></span></td>
+                <td><span th:text="${emp.empname}"></span></td>
+                <td><span th:text="${emp.deptname}"></span></td>
+                <td><span th:text="${emp.mgr}"></span></td>
+                <td><span th:text="${emp.joinDate}"></span></td>
+                <td><span th:text="${emp.salary}"></span></td>
+                <td><span th:text="${emp.comm}"></span></td>
+                <td><span th:text="${emp.deptno}"></span></td>
+                <td>
+                    <a th:href="@{/employee/emp_edit(no=${emp.empno})}">
+                        <img alt="edit" th:src="@{/images/edit.png}" width="50" height="60">
+                    </a>
+                </td>
+                <td>
+                    <a th:href="@{/employee/emp_delete(no=${emp.empno})}" onclick="return confirm('Do you want to delete the employee?')">
+                        <img alt="delete" th:src="@{/images/delete.jpeg}" width="50" height="60">
+                    </a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div th:if="${#lists.isEmpty(empreport)}">
+        <h1 style="color:red;text-align:center">Employees not found</h1>
+    </div>
+    <br><br>
+    <h1 style="color:green; text-align:center" th:text="${registe}"></h1><br>
+    <center>
+        <a th:href="@{/employee/emp_add}">
+            <img alt="add employee" th:src="@{/images/emp_add.png}" width="80" height="100">
+        </a><br>
+        <a th:href="@{/employee/}">
+            <img alt="HOME" th:src="@{/images/home.png}" width="80" height="100">
+        </a>
+    </center>
+</body>
+</html>
